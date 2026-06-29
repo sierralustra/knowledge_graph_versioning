@@ -23,3 +23,37 @@ While Git revolutionized line-by-line code versioning, `sierralustra-core` intro
 ## 🏗️ Architectural Overview
 
 The engine treats knowledge not as flat, sequential files, but as a Directed Acycl
+
+[ Root Node ]
+     /        \
+
+[Branch A]    [Branch B]
+|             |
+(Mutation)    (Mutation)
+\        /
+[ Merged Node ]
+
+
+When two branches merge, `sierralustra-core` resolves conflicts semantically based on node-type rules (e.g., matching mathematical expressions or hierarchical outlines) rather than arbitrary text lines.
+
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+*   A modern C++20 compliant compiler (GCC 11+, Clang 13+, or MSVC 2022+)
+*   CMake (3.22 or higher)
+*   Doxygen (Optional, for documentation generation)
+
+### Building from Source
+
+```bash
+# Clone the repository
+git clone https://github.com/sierralustra/knowledge_graph_versioning.git
+cd /sierralustra-core
+
+# Configure and build the project
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake --build .
