@@ -1,0 +1,2 @@
+add_executable(sierralustra_node main.cpp)
+target_link_libraries(sierralustra_node PRIVATE sierralustra_core)
