@@ -1,15 +1,34 @@
-# knowledge_graph_versioning
-architecture, data primitives, and systemic scalability. This project positions Sierralustra not as a consumer app, but as a foundational evolution in how complex, multi-layered intellectual data is versioned, structured, and queried
 
 
-# Sierralustra Core (`sierralustra-core`)
+---
+
+
+# Sierralustra: The Non-Linear Knowledge Engine
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://opensource.org/licenses/AGPL-3.0)
 [![Language: C++20](https://img.shields.io/badge/Language-C%2B%2B20-00599C.svg)](https://isocpp.org/)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 
-`sierralustra-core` is a high-performance, concurrent branching and version-control engine designed specifically for structured intellectual knowledge. 
+Sierralustra is a high-performance, concurrent version-control and collaboration engine designed specifically for structured intellectual and scientific knowledge. 
 
-While Git revolutionized line-by-line code versioning, `sierralustra-core` introduces **Knowledge Trees**: a graph-based data primitive designed to handle non-linear, multi-party collaboration on deeply nested scientific text, metadata, and mathematical schemas without text-merge conflicts.
+While Git revolutionized line-by-line source code tracking, it falls short when dealing with nested document structures, mathematical schemas, and multi-party research logic. Sierralustra introduces **Knowledge Trees**: a thread-safe, graph-based data primitive designed to branch, mutate, and semantically merge complex concepts without flat-text merge conflicts.
+
+---
+
+## 🏗️ Architectural Foundations
+
+Unlike typical web platforms built on top of flat document models, Sierralustra handles intellectual capital as a Directed Acyclic Graph (DAG). 
+
+
+
+Every node in the graph represents a logical brick of knowledge (e.g., text blocks, LaTeX expressions, or metadata) maintaining its own cryptographic identity and structural lineage. When concurrent mutations occur, our engine resolves conflicts semantically by evaluating the structural properties of the nodes rather than relying on arbitrary string lines.
+
+### Key Performance Primitives
+* **Lock-Ordered 3-Way Merge:** Built-in protection against race conditions and deadlocks using strict `std::shared_mutex` locking hierarchies during concurrent merge sequences.
+* **Deterministic AI Subsystem:** Architectural hooks that allow LLMs and agentic reasoning systems to navigate the knowledge graph natively as a single source of truth, bypassing traditional lossy vector-search chunking.
+* **Native Scientific Foundations:** Integrated mathematical parsing that guarantees LaTeX syntax structural integrity is preserved across branching points.
+
+---
 
 ## 🚀 Core Features
 
@@ -18,7 +37,63 @@ While Git revolutionized line-by-line code versioning, `sierralustra-core` intro
 *   **Native Scientific Parsing:** Deep integration with LaTeX tokenization and mathematical parsing, ensuring syntax structural integrity is preserved across branches.
 *   **Deterministic AI Subsystem:** Architectural hooks designed to allow LLMs and reasoning engines to traverse the knowledge graph deterministically rather than relying on lossy semantic vector-chunking.
 
----
+## 📁 Repository Structure
+
+The engine is engineered using a clean, modern out-of-source modular layout:
+
+```text
+sierralustra/
+├── CMakeLists.txt                 # Master build orchestration rules
+├── include/
+│   └── sierralustra/
+│       └── knowledge_graph.hpp    # Public API & Engine declarations
+├── src/
+│   └── knowledge_graph.cpp        # Private runtime implementations
+├── apps/
+│   └── main.cpp                   # Desktop/Server execution entry point
+└── tests/
+    └── graph_tests.cpp            # Thread-isolation and regression tests
+
+```
+
+## 🛠️ Quick Start
+Prerequisites
+
+    A modern C++20 compliant compiler (GCC 11+, Clang 13+, or MSVC 2022+)
+
+    CMake (Version 3.22 or higher)
+
+Building the Entire Workspace
+
+To compile the core shared library, application binary, and test suite, execute the following commands from the project root:
+
+
+# 1. Initialize out-of-source build isolation architecture
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+# 2. Compile all workspace targets
+cmake --build build
+
+# 3. Verify graph boundary integrity via CTest
+cd build && ctest --output-on-failure
+
+🗺️ Engineering Roadmap
+
+    [x] High-performance DAG branching core implementation
+
+    [x] Thread-safe 3-Way merge with deadlock mitigation primitives
+
+    [ ] Direct WebAssembly (Wasm) compilation compilation targeting edge execution
+
+    [ ] Extended schema verification rules for complex mathematical notation trees
+
+📄 Open-Core & Licensing Philosophy
+
+Sierralustra is open-source software licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
+
+We are fully committed to a sustainable open-core paradigm. The fundamental mathematical graph topology, memory management, and versioning engines will always remain open, auditable, and free. Enterprise-grade collaboration controls, hosted infrastructure scales, and institutional cloud tools power our managed ecosystem at Sierralustra.com.
+
+
 
 ## 🏗️ Architectural Overview
 
@@ -76,8 +151,8 @@ int main() {
     std::cout << "Node successfully branched. Current Version Hash: " << branch_A->hash() << std::endl;
     return 0;
 }
-
-🧪 Testing
+```
+## 🧪 Testing
 
 We run comprehensive property-based and concurrent race tests to guarantee graph consistency under heavy loads.
 Bash
@@ -85,17 +160,9 @@ Bash
 cd build
 ctest --output-on-failure
 
-🗺️ Roadmap
 
-    [ ] Core DAG branching primitives stability validation
 
-    [ ] Concurrent Merge Conflict Resolution Engine optimization
-
-    [ ] Direct WebAssembly (Wasm) compilation for edge execution
-
-    [ ] Extended schema verification rules for complex mathematical structures
-
-📄 License & Open-Core Philosophy
+## 📄 License & Open-Core Philosophy
 
 sierralustra-core is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
 
