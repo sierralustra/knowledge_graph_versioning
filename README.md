@@ -57,3 +57,46 @@ cd /sierralustra-core
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
+
+
+C++
+
+#include <sierralustra/knowledge_tree.hpp>
+#include <sierralustra/latex_parser.hpp>
+#include <iostream>
+
+int main() {
+    // Initialize a new Knowledge Tree node containing LaTeX notation
+    auto root = sl::KnowledgeNode::create("Root", "Let $E = mc^2$ be our starting primitive.");
+    
+    // Create a concurrent branch
+    auto branch_A = root->fork("Branch_A");
+    branch_A->update_content("Let $E = mc^2$ and $F = ma$ co-exist.");
+    
+    std::cout << "Node successfully branched. Current Version Hash: " << branch_A->hash() << std::endl;
+    return 0;
+}
+
+🧪 Testing
+
+We run comprehensive property-based and concurrent race tests to guarantee graph consistency under heavy loads.
+Bash
+
+cd build
+ctest --output-on-failure
+
+🗺️ Roadmap
+
+    [ ] Core DAG branching primitives stability validation
+
+    [ ] Concurrent Merge Conflict Resolution Engine optimization
+
+    [ ] Direct WebAssembly (Wasm) compilation for edge execution
+
+    [ ] Extended schema verification rules for complex mathematical structures
+
+📄 License & Open-Core Philosophy
+
+sierralustra-core is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
+
+We are fully committed to a sustainable open-core business model. The core mathematical graph and versioning engine will always remain open and free. Commercial components, managed cloud infrastructure, and enterprise collaboration controls power the ecosystem at Sierralustra.com.
