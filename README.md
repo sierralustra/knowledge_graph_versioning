@@ -142,14 +142,14 @@ cd sierralustra_core
 
 Remove previous build if necessairy
 
-# 1. Generate the build configuration
+# 1. Initialize empty isolation build architecture
 cmake -B build -DCMAKE_BUILD_TYPE=Release
 
-# 2. Compile the binaries
+# 2. Compile every target dynamically linked .
 cmake --build build
 
-# 3. Execute the binary
-./build/sierralustra_demo
+# 3. Run automated regression testing suite via CTest
+cd build && ctest --output-on-failure
 
 
 ```
