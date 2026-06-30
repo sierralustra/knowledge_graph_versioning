@@ -126,31 +126,18 @@ When two branches merge, `sierralustra-core` resolves conflicts semantically bas
 ```bash
 # Clone the repository
 git clone https://github.com/sierralustra/knowledge_graph_versioning.git
-cd /sierralustra-core
+cd /sierralustra_base_core folder
+
+# Using GCC
+g++ -std=c++20 -I include/ src/main.cpp -o sierralustra_demo -pthread
+
+# Using Clang
+clang++ -std=c++20 -I include/ src/main.cpp -o sierralustra_demo -pthread
+
+
 
 # Configure and build the project
-mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-cmake --build .
 
-
-C++
-
-#include <sierralustra/knowledge_tree.hpp>
-#include <sierralustra/latex_parser.hpp>
-#include <iostream>
-
-int main() {
-    // Initialize a new Knowledge Tree node containing LaTeX notation
-    auto root = sl::KnowledgeNode::create("Root", "Let $E = mc^2$ be our starting primitive.");
-    
-    // Create a concurrent branch
-    auto branch_A = root->fork("Branch_A");
-    branch_A->update_content("Let $E = mc^2$ and $F = ma$ co-exist.");
-    
-    std::cout << "Node successfully branched. Current Version Hash: " << branch_A->hash() << std::endl;
-    return 0;
-}
 ```
 ## 🧪 Testing
 
