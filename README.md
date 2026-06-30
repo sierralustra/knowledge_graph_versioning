@@ -136,7 +136,21 @@ clang++ -std=c++20 -I include/ src/main.cpp -o sierralustra_demo -pthread
 
 
 
-# Configure and build the project
+# Configure and build the project for CMake and Test results
+
+cd sierralustra_core
+
+Remove previous build if necessairy
+
+# 1. Generate the build configuration
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+# 2. Compile the binaries
+cmake --build build
+
+# 3. Execute the binary
+./build/sierralustra_demo
+
 
 ```
 ## 🧪 Testing
