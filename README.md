@@ -135,7 +135,6 @@ g++ -std=c++20 -I include/ src/main.cpp -o sierralustra_demo -pthread
 clang++ -std=c++20 -I include/ src/main.cpp -o sierralustra_demo -pthread
 
 
-
 # Configure and build the project for CMake and Test results
 
 cd sierralustra_core
@@ -155,12 +154,37 @@ cd build && ctest --output-on-failure
 ```
 ## 🧪 Testing
 
+# Using GCC
+g++ -std=c++20 -I include/ src/main.cpp -o sierralustra_demo -pthread
+
+# Using Clang
+clang++ -std=c++20 -I include/ src/main.cpp -o sierralustra_demo -pthread
+
+<img width="319" height="127" alt="Screenshot from 2026-07-02 04 47 48" src="https://github.com/user-attachments/assets/61ce8161-2b1d-4029-a93a-f48f12057897" />
+
+
 We run comprehensive property-based and concurrent race tests to guarantee graph consistency under heavy loads.
 Bash
 
 cd build
 ctest --output-on-failure
 
+# 1. Initialize empty isolation build architecture
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+<img width="486" height="191" alt="Screenshot from 2026-07-02 04 51 19" src="https://github.com/user-attachments/assets/38871eec-7a05-4fca-8563-b3b209f3da9d" />
+
+
+# 2. Compile every target dynamically linked .
+cmake --build build
+
+<img width="729" height="149" alt="Screenshot from 2026-07-02 04 52 33" src="https://github.com/user-attachments/assets/67944866-a0ae-47dd-8346-118251ccfbf6" />
+
+
+# 3. Run automated regression testing suite via CTest
+cd build && ctest --output-on-failure
+
+<img width="763" height="116" alt="s_test" src="https://github.com/user-attachments/assets/31f2a000-2c6b-4dab-878e-bf9bec4bab17" />
 
 
 ## 📄 License & Open-Core Philosophy
